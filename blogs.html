@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Siddhant Aggarwal - Blogs</title>
+    <link rel='icon' href='images/avatars/icon_img.jpg' />
+    <meta name="description" content="Siddhant Aggarwal's Blog Posts">
+    <meta name="author" content="Siddhant Aggarwal">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/vendor.css">
+
+    <script defer src="js/vendor/fontawesome/all.min.js"></script>
+
+    <style>
+        body {
+            background-color: #f9f9f9;
+        }
+        .s-header {
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent dark background */
+            position: fixed; /* Changed to fixed */
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: background-color 0.3s ease, padding 0.3s ease;
+            padding: 1rem 0;
+        }
+        .s-header.scrolled {
+            background-color: rgba(0, 0, 0, 0.85);
+            padding: 0.5rem 0;
+        }
+        .s-header__nav {
+            display: flex;
+            justify-content: flex-end;
+        }
+        .s-header__nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .s-header__nav ul li {
+            margin-left: 1.5rem;
+        }
+        .s-header__nav ul li a {
+            color: #ffffff; /* White text for better contrast */
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+            font-weight: bold; /* Make text bold for better visibility */
+        }
+        .s-header__nav ul li a:hover,
+        .s-header__nav ul li.current a {
+            color: #FFE4B5; /* Light orange color for hover and current state */
+        }
+        .s-header__menu-toggle {
+            display: none;
+        }
+        @media screen and (max-width: 900px) {
+            .s-header__nav {
+                display: none;
+                background-color: rgba(0, 0, 0, 0.9); /* Dark background for mobile menu */
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                padding: 1rem;
+            }
+            .s-header__nav ul {
+                flex-direction: column;
+            }
+            .s-header__nav ul li {
+                margin: 0.5rem 0;
+            }
+            .s-header__menu-toggle {
+                display: block;
+                position: absolute;
+                top: 1.5rem;
+                right: 1.5rem;
+                color: white;
+                font-size: 1.5rem;
+            }
+        }
+        .blog-header {
+            background-color: #FFE4B5; /* Light orange color */
+            padding-top: 12rem; /* Increased top padding to account for fixed navbar */
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .blog-header img {
+            width: 80px; /* Increased size */
+            height: auto;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+        .blog-header h1 {
+            font-size: 6.0rem; /* Increased font size */
+            color: #333;
+            margin-top: 1rem;
+        }
+        .blog-posts-container {
+            padding: 0 2rem;
+        }
+        .blog-post {
+            margin-bottom: 4rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #ddd;
+        }
+        .blog-post:last-child {
+            border-bottom: none;
+        }
+        .blog-post h2 {
+            margin-bottom: 0.5rem;
+        }
+        .blog-post-meta {
+            color: #666;
+            font-size: 12px; /* Increased from 0.9rem to 12px */
+            margin-bottom: 1rem;
+        }
+        .blog-post-content {
+            font-size: 20px;
+            font-family: Georgia, serif;
+        }
+    </style>
+</head>
+
+<body id="top" class="ss-preload">
+    <div id="preloader">
+        <div id="loader"></div>
+    </div>
+
+    <header class="s-header">
+        <div class="row s-header__nav-wrap">
+            <nav class="s-header__nav">
+                <ul>
+                    <li><a href="index.html#hero">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#experience">Experience</a></li>
+                    <li><a href="index.html#education">Education</a></li>
+                    <li class="current"><a href="blogs.html">Blogs</a></li>
+                    <li><a href="index.html#contact">Say Hello</a></li>
+                </ul>
+            </nav>
+        </div>
+        
+        <a class="s-header__menu-toggle" href="#0" title="Menu">
+            <span class="s-header__menu-icon"></span>
+        </a>
+    </header>
+
+    <section class="s-content">
+        <div class="blog-header">
+            <img src="images/portfolio/DS_icon.png" alt="Blog Header Icon">
+            <h1>My Blog Posts</h1>
+        </div>
+        <div class="row blog-posts-container">
+            <!-- Blog posts will be dynamically inserted here -->
+        </div>
+    </section>
+
+    <footer class="s-footer">
+        <div class="ss-go-top">
+            <a class="smoothscroll" title="Back to Top" href="#top">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 4h12v2H6zm5 10v6h2v-6h5l-6-6-6 6z"/></svg>
+            </a>
+        </div>
+    </footer>
+
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/BlogPosts.js"></script>
+    <script>
+        // Scrolling effect
+        window.addEventListener('scroll', function() {
+            var header = document.querySelector('.s-header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Menu toggle for mobile
+        document.querySelector('.s-header__menu-toggle').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector('.s-header__nav').style.display = 
+                document.querySelector('.s-header__nav').style.display === 'flex' ? 'none' : 'flex';
+        });
+    </script>
+</body>
+</html>

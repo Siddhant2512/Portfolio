@@ -74,6 +74,62 @@
             font-weight: bold;
             cursor: pointer;
         }
+        .s-latest-blogs {
+            background-color: #f0f0f0;
+            padding: 6rem 0;
+        }
+        .blog-flashcards {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            padding: 20px 0;
+        }
+        .blog-flashcard {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            min-width: 250px;
+            max-width: 300px;
+            text-align: left;
+            text-decoration: none;
+            color: #333;
+            transition: transform 0.3s ease;
+        }
+        .blog-flashcard:hover {
+            transform: translateY(-5px);
+        }
+        .blog-flashcard h3 {
+            margin: 0 0 10px 0;
+            font-size: 18px;
+            color: #333;
+        }
+        .blog-excerpt {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .text-center {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .btn--primary {
+            background-color: #333;
+            color: white;
+            padding: 0.8rem 1.6rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .btn--primary:hover {
+            background-color: #555;
+        }
     </style>
 </head>
 
@@ -90,6 +146,7 @@
                     <li><a class="smoothscroll" href="#about">About</a></li>
                     <li><a class="smoothscroll" href="#experience">Experience</a></li>
                     <li><a class="smoothscroll" href="#education">Education</a></li>
+                    <li><a href="blogs.html">Blogs</a></li>
                     <li><a class="smoothscroll" href="#contact">Say Hello</a></li>
                 </ul>
             </nav>
@@ -150,6 +207,21 @@
                                 Download CV
                             </a>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Blog Section -->
+        <section id="latest-blogs" class="s-latest-blogs target-section">
+            <div class="row">
+                <div class="column large-12">
+                    <h2>The Latest on the Blog</h2>
+                    <div class="blog-flashcards">
+                        <!-- Blog flashcards will be dynamically inserted here -->
+                    </div>
+                    <div class="text-center">
+                        <a href="blogs.html" class="btn btn--primary">Head to my Blog</a>
                     </div>
                 </div>
             </div>
@@ -349,6 +421,7 @@
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
     <script src="js/certifications.js"></script>
+    <script src="js/BlogPosts.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             if (typeof loadCertifications === 'function') {
@@ -356,6 +429,11 @@
             } else {
                 console.error('Certifications script not loaded properly');
                 document.querySelector('.certifications-container').innerHTML = 'Error loading certifications. Please try again later.';
+            }
+            
+            // Add this line to load blog posts
+            if (typeof loadBlogPosts === 'function') {
+                loadBlogPosts().then(posts => displayBlogFlashcards(posts));
             }
         });
     </script>
