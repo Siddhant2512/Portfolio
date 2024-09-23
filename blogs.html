@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="css/vendor.css">
 
     <script defer src="js/vendor/fontawesome/all.min.js"></script>
+    <script type="module" src="js/BlogPosts.js"></script>
 
     <style>
         body {
@@ -107,6 +108,8 @@
             margin-bottom: 4rem;
             padding-bottom: 2rem;
             border-bottom: 1px solid #ddd;
+            padding-top: 60px;
+            margin-top: -60px;
         }
         .blog-post:last-child {
             border-bottom: none;
@@ -122,6 +125,44 @@
         .blog-post-content {
             font-size: 20px;
             font-family: Georgia, serif;
+        }
+        .blog-flashcards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 0 2rem;
+            margin-bottom: 4rem;
+        }
+        .blog-flashcard {
+            width: calc(33.33% - 1rem);
+            margin-bottom: 2rem;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+        }
+        .blog-flashcard:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        .blog-flashcard-content {
+            padding: 1.5rem;
+        }
+        .blog-flashcard h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        .blog-flashcard p {
+            font-size: 1.4rem;
+            color: #666;
+        }
+        @media screen and (max-width: 768px) {
+            .blog-flashcard {
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -155,9 +196,23 @@
             <img src="images/portfolio/DS_icon.png" alt="Blog Header Icon">
             <h1>My Blog Posts</h1>
         </div>
-        <div class="row blog-posts-container">
-            <!-- Blog posts will be dynamically inserted here -->
+        <div class="row blog-flashcards-container">
+            <!-- Blog flashcards will be dynamically inserted here -->
         </div>
+        <div id="blog-posts" class="row blog-posts-container">
+            <!-- Full blog posts will be dynamically inserted here -->
+        </div>
+    </section>
+
+    <!-- New Contact Section -->
+    <section id="contact" class="s-contact target-section">
+        <h2>Contact</h2>
+        <p>Feel free to reach out to me for any inquiries or opportunities.</p>
+        <ul>
+            <li><strong>Email:</strong> <a href="mailto:siddhantaggarwal2001@gmail.com">siddhantaggarwal2001@gmail.com</a></li>
+            <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/siddhant-aggarwal-24918a223//" target="_blank">https://www.linkedin.com/in/siddhant-aggarwal-24918a223//</a></li>
+            <li><strong>GitHub:</strong> <a href="https://github.com/Siddhant2512" target="_blank">github.com/Siddhant2512</a></li>
+        </ul>
     </section>
 
     <footer class="s-footer">
@@ -170,7 +225,15 @@
 
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
-    <script src="js/BlogPosts.js"></script>
+    <script type="module">
+        import { loadBlogPosts, displayBlogFlashcards, displayFullBlogPosts } from './js/BlogPosts.js';
+
+        document.addEventListener('DOMContentLoaded', async function() {
+            const posts = await loadBlogPosts();
+            displayBlogFlashcards(posts, '.blog-flashcards-container', false); // Added 'false' to indicate it's not the main page
+            displayFullBlogPosts(posts);
+        });
+    </script>
     <script>
         // Scrolling effect
         window.addEventListener('scroll', function() {
