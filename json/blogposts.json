@@ -2,7 +2,7 @@
     {
       "id": "post1",
       "title": "My Journey into AI and Data Science: What to Expect from This Blog",
-      "date": "June 16, 2025",
+      "date": "September 25, 2025",
       "excerpt": "I’m a Computer Engineering graduate with a deep passion for Artificial Intelligence.",
       "content": [
         "Hello everyone,",
@@ -13,5 +13,108 @@
         "My vision for this blog is simple: to help more people understand AI and how it can be used to make a positive difference.",
         "If you're interested in learning more about AI, feel free to follow to stay updated on the latest posts. I'm excited to have you with me on this journey!"
       ]
+    },
+    {
+      "id": "post2",
+      "title": "The Art of Data Preprocessing: Cleaning and Transforming for Better AI",
+      "date": "October 5, 2025",
+      "excerpt": "Clean data is the key to building successful AI and data science projects. Learn the steps and techniques needed to transform messy data into reliable inputs for models.",
+      "content": [
+        "Hello Data Enthusiasts,",
+        "Data rarely comes clean and perfect—most real-world datasets have missing values, strange outliers, and confusing formats. Preprocessing is the step where we fix these problems and prepare the data for machine learning.",
+        "The first step is always to explore your data! Use pandas' df.info() and df.describe() to look for null values and outliers. Visualization tools like matplotlib or seaborn can help you quickly spot problematic values with histograms, boxplots, and scatter plots.",
+        "Handling missing data is next: If a column has just a few missing values, you might fill them with the mean, median, or a constant. For example, df.fillna(df.mean()) fills blanks with averages. If too many values are missing from a column, sometimes it's best to drop the column entirely.",
+        "Outliers often appear as values far away from the rest (e.g., an age of 200 years). You can detect them with statistical methods like Z-score or with boxplots. Outliers can be removed by filtering, or replaced with more reasonable data.",
+        "Categorical features (words like 'Male', 'Female', 'Cat', 'Dog') must be converted into numbers. Use one-hot encoding (pd.get_dummies()) or label encoding for this step, so algorithms can process them.",
+        "Scaling features puts all numbers on similar scales. Many models, especially neural networks and distance-based methods, expect features to be roughly in the same range. Use tools like StandardScaler or MinMaxScaler from sklearn.",
+        "A sample pipeline in Python might look like this:",
+        "import pandas as pd",
+        "from sklearn.preprocessing import StandardScaler",
+        "df = pd.read_csv('data.csv')",
+        "# Handle missing values",
+        "df.fillna(df.median(), inplace=True)",
+        "# Remove big outliers",
+        "df = df[df['age'] < 120]",
+        "# Encode categorical",
+        "df = pd.get_dummies(df, columns=['gender'])",
+        "# Scale features",
+        "scaler = StandardScaler()",
+        "df_scaled = scaler.fit_transform(df)",
+        "Proper preprocessing ensures that ML models understand the data clearly, learn patterns accurately, and produce better predictions. Always document your preprocessing steps for reproducibility!"
+      ]
+    },
+    {
+      "id": "post3",
+      "title": "Regression vs. Classification: Picking the Right Tool for Your Data Problem",
+      "date": "October 9, 2025",
+      "excerpt": "Learn how to choose between regression and classification for your machine learning projects. Each method solves different types of prediction problems.",
+      "content": [
+        "Hi beginners,",
+        "Choosing between regression and classification is one of the first steps in machine learning.",
+        "If your target variable is a number, use regression. Examples: predicting price, age, temperature, or rating.",
+        "If your target variable is a category or label, use classification. Examples: spam vs. not spam, healthy vs. sick, dog vs. cat.",
+        "Regression models include Linear Regression, Decision Trees, and Random Forest Regressor. They learn to find patterns in numeric data and predict continuous outputs.",
+        "Classification models include Logistic Regression, Random Forest Classifier, Support Vector Machines, and Neural Networks. They learn to draw boundaries between groups and assign data to categories.",
+        "How do you evaluate success?",
+        "- Regression: Use metrics like Mean Absolute Error (MAE), Root Mean Squared Error (RMSE), and R² score.",
+        "- Classification: Use Accuracy, Precision, Recall, Confusion Matrix, and F1-score.",
+        "Python sample for regression:",
+        "from sklearn.linear_model import LinearRegression",
+        "reg = LinearRegression(); reg.fit(X_train, y_train)",
+        "y_pred = reg.predict(X_test)",
+        "Python sample for classification:",
+        "from sklearn.linear_model import LogisticRegression",
+        "clf = LogisticRegression(); clf.fit(X_train, y_train)",
+        "y_pred = clf.predict(X_test)",
+        "Tip: Look at your goal before starting—number or category? Pick the method that matches, and you'll get clearer, more useful results!"
+      ]
+    },
+    {
+      "id": "post4",
+      "title": "Understanding Random Forests: How Ensemble Learning Improves Predictions",
+      "date": "October 14, 2025",
+      "excerpt": "Random Forests are powerful machine learning models that combine the strengths of multiple decision trees. Learn how they work and how to tune them for best results.",
+      "content": [
+        "Hi readers,",
+        "Random Forests are an ensemble method—this means they combine many decision trees to reduce the risk of overfitting and improve predictive accuracy.",
+        "Each decision tree splits the data based on questions about feature values. Alone, a tree might overfit (memorize training data), but a forest averages predictions from many trees trained on random slices of data and features.",
+        "Key parameters to tune include:",
+        "- n_estimators: the number of trees in the forest (more trees generally mean better results but slower computation).",
+        "- max_depth: how deep each tree can grow (limit depth to prevent overfitting).",
+        "- max_features: how many features to consider when looking for the best split.",
+        "- min_samples_split: minimum number of samples required to split a node.",
+        "Random Forests work for both classification (predicting labels) and regression (predicting numbers). For classification:",
+        "from sklearn.ensemble import RandomForestClassifier",
+        "rf_clf = RandomForestClassifier(n_estimators=100, max_depth=10, random_state=42)",
+        "rf_clf.fit(X_train, y_train)",
+        "print('Test accuracy:', rf_clf.score(X_test, y_test))",
+        "For regression:",
+        "from sklearn.ensemble import RandomForestRegressor",
+        "rf_reg = RandomForestRegressor(n_estimators=100, max_depth=12, random_state=42)",
+        "rf_reg.fit(X_train, y_train)",
+        "print('Test R2 score:', rf_reg.score(X_test, y_test))",
+        "Feature importance is another great advantage! Random Forests tell you which columns are most relevant for predictions (rf_clf.feature_importances_).",
+        "Tip: Use GridSearchCV or Optuna for automated hyperparameter tuning. Always test your model on unseen (test) data to see how well it generalizes."
+      ]
+    },
+    {
+      "id": "post5",
+      "title": "Building Interactive Machine Learning Dashboards with Streamlit",
+      "date": "October 18, 2025",
+      "excerpt": "Streamlit makes it easy for anyone to build interactive data dashboards and share machine learning results. Get started today with no web coding!",
+      "content": [
+        "Hello aspiring developers,",
+        "Streamlit is changing how we present machine learning! With just a few lines of Python, you can create web apps that show off graphs, model results, and interactive controls.",
+        "Start by installing Streamlit (pip install streamlit). Write a Python script that loads your data and adds charts. For example:",
+        "import streamlit as st; import pandas as pd",
+        "st.title('My Dashboard'); df = pd.read_csv('data.csv'); st.write(df.head())",
+        "st.line_chart(df['value'])",
+        "Add interactivity! Use st.slider() to change a number and see results update. With st.file_uploader(), users can upload their own datasets and explore them live.",
+        "You can include model predictions, summary statistics, or even connect Streamlit to trained models for live inference.",
+        "To run your app, type streamlit run your_script.py in your terminal. Your browser will open automatically.",
+        "Pro tip: Use st.sidebar for menu navigation. Try st.selectbox to let users pick columns or data views.",
+        "Streamlit is perfect for sharing data projects, teaching others, or building demo apps for school or work. Once you try it, you’ll see just how easy and powerful dashboarding can be!"
+      ]
     }
+    
   ]

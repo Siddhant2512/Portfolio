@@ -165,7 +165,7 @@
                     <h1>Hello World!</h1>
                     <h3>
                         I'm Siddhant Aggarwal. <span>Welcome aboard!</span>
-                        <span>I'm a Computer Engineering Graduate, currently pursuing my Master degree in Information Technology with specialaization in Artificial Intelligence. I am an AI Enthusiast with strong skills in Machine Learning, Deep Learning, and Generative AI.</span>
+                        <span>I'm a Computer Engineering Graduate, currently pursuing my Master degree in Information Technology with specialization in Artificial Intelligence. I am an AI Enthusiast with strong skills in Machine Learning, Deep Learning, and Generative AI.</span>
                         <a class="smoothscroll" href="#about">Learn more about me</a>.
                     </h3>
                 </div>
@@ -261,6 +261,29 @@
                 </div>
                 <div class="column large-9 tab-12">
                     <!-- Project content -->
+                    <div class="resume-block">
+                        <div class="resume-block__header">
+                            <h4 class="h3">Intelligent Battery Monitoring System with Uncertainty Quantification</h4>
+                            <p class="resume-block__header-meta">
+                                <span>Machine Learning Project</span> 
+                                <span class="resume-block__header-date">
+                                    2024 - 2025
+                                </span>
+                            </p>
+                        </div>
+                        <p>
+                            A comprehensive machine learning system for predicting Remaining Useful Life (RUL) of batteries with uncertainty quantification using statistical features and Empirical Mode Decomposition (EMD).
+                            <ul>
+                                <li>Developed a multi-model prediction system using Random Forest (GridSearchCV optimized), LSTM (Optuna optimized), and Transformer architectures for battery RUL prediction</li>
+                                <li>Implemented feature engineering pipeline extracting 175 features per cycle: 16 statistical features (voltage, current, temperature statistics) and 159 EMD features capturing multi-scale temporal patterns</li>
+                                <li>Integrated Monte Carlo Dropout with PyTorch for uncertainty quantification, achieving improved R² score from 0.206 to 0.426 on LSTM model</li>
+                                <li>Built interactive Streamlit dashboard for real-time predictions with confidence intervals, model comparison, and visualization capabilities</li>
+                                <li>Processed NASA/CALCE battery datasets with 2,750 discharge cycles across 34 unique batteries using battery-level data splitting to prevent data leakage</li>
+                                <li>Optimized hyperparameters using GridSearchCV (Random Forest) and Bayesian optimization with Optuna (LSTM), achieving test MAE of 14.72 cycles and RMSE of 19.77 cycles</li>
+                            </ul>
+                            <p><a href="https://github.com/Siddhant2512/Intelligent-Battery-Monitoring" target="_blank">View on GitHub</a> | <a href="https://batteryhealth.streamlit.app/" target="_blank">Live Web Application</a></p>
+                        </p>
+                    </div>
                     <div class="resume-block">
                         <div class="resume-block__header">
                             <h4 class="h3">Smart Vision Glasses: Empowering the Visually Impaired</h4>
